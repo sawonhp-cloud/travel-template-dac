@@ -1,10 +1,10 @@
 // NAVIGATION
 export const NAV_LINKS = [
   { href: '/', key: 'home', label: 'Home' },
-  { href: '/', key: 'how_hilink_work', label: 'How Hilink Work?' },
+  { href: '/', key: 'flight', label: 'Flight' },
+  { href: '/', key: 'hotel ', label: 'Hotel ' },
   { href: '/', key: 'services', label: 'Services' },
-  { href: '/', key: 'pricing ', label: 'Pricing ' },
-  { href: '/', key: 'contact_us', label: 'Contact Us' },
+  { href: '/contactus', key: 'contact_us', label: 'Contact Us' },
 ];
 
 // CAMP SECTION
@@ -29,7 +29,7 @@ export const FEATURES = [
     icon: '/calendar.svg',
     variant: 'green',
     description:
-      "Schedule an adventure with friends. On holidays, there are many interesting offers from Hilink. That way, there's no more discussion",
+      "Schedule an adventure with friends. On holidays, there are many interesting offers from Nexus. That way, there's no more discussion",
   },
   {
     title: 'Technology using augment reality',
@@ -52,7 +52,7 @@ export const FOOTER_LINKS = [
   {
     title: 'Learn More',
     links: [
-      'About Hilink',
+      'About Nexus',
       'Press Releases',
       'Environment',
       'Jobs',
@@ -62,7 +62,7 @@ export const FOOTER_LINKS = [
   },
   {
     title: 'Our Community',
-    links: ['Climbing xixixi', 'Hiking hilink', 'Hilink kinthill'],
+    links: ['Climbing Nexus', 'Trip Nexus', 'Nexus Travel'],
   },
 ];
 
@@ -70,7 +70,7 @@ export const FOOTER_CONTACT_INFO = {
   title: 'Contact Us',
   links: [
     { label: 'Admin Officer', value: '123-456-7890' },
-    { label: 'Email Officer', value: 'hilink@akinthil.com' },
+    { label: 'Email Officer', value: 'nexus@trip.com' },
   ],
 };
 

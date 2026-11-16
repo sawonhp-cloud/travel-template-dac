@@ -1,82 +1,57 @@
-import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '@/constants'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-
-const Footer = () => {
+import Link from "next/link";
+import {
+  FaArrowUp,
+  FaInstagram,
+  FaPinterestP,
+  FaFacebookF,
+} from "react-icons/fa";
+export default function Footer() {
   return (
-    <footer className="flexCenter mb-24">
-      <div className="padding-container max-container flex w-full flex-col gap-14">
-        <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
-          <Link href="/" className="mb-10">
-            <Image src="hilink-logo.svg" alt="logo" width={74} height={29}/>
+    <footer className="footer">
+      <div className="footer-main wrap">
+        <div className="footer-brand">
+          <Link className="brand brand-footer" href="/">
+            <span className="brand-mark">
+              <span>tb</span>
+            </span>
+            <span>
+              travel<span className="brand-accent">boss</span>
+              <small>GO BEYOND THE ORDINARY</small>
+            </span>
           </Link>
-
-          <div className='flex flex-wrap gap-10 sm:justify-between md:flex-1'>
-            {FOOTER_LINKS.map((columns) => (
-              <FooterColumn title={columns.title}>
-                <ul className="regular-14 flex flex-col gap-4 text-gray-30">
-                  {columns.links.map((link) => (
-                    <Link href="/" key={link}>
-                      {link}
-                    </Link>
-                  ))}
-                </ul>
-              </FooterColumn>
-            ))}
-
-            <div className="flex flex-col gap-5">
-              <FooterColumn title={FOOTER_CONTACT_INFO.title}>
-                {FOOTER_CONTACT_INFO.links.map((link) => (
-                  <Link
-                    href="/"
-                    key={link.label}
-                    className="flex gap-4 md:flex-col lg:flex-row"
-                  >
-                    <p className="whitespace-nowrap">
-                      {link.label}:
-                    </p>
-                    <p className="medium-14 whitespace-nowrap text-blue-70">
-                      {link.value}
-                    </p>
-                  </Link>
-                ))}
-              </FooterColumn>
-            </div>
-
-            <div className="flex flex-col gap-5">
-              <FooterColumn title={SOCIALS.title}>
-                <ul className="regular-14 flex gap-4 text-gray-30">
-                  {SOCIALS.links.map((link) => (
-                    <Link href="/" key={link}>
-                      <Image src={link} alt="logo" width={24} height={24} />
-                    </Link>
-                  ))}
-                </ul>
-              </FooterColumn>
-            </div>
+          <p>For the curious, the courageous, and everyone in between.</p>
+          <div className="socials">
+            <a href="#instagram" aria-label="Instagram">
+              <FaInstagram />
+            </a>
+            <a href="#pinterest" aria-label="Pinterest">
+              <FaPinterestP />
+            </a>
+            <a href="#facebook" aria-label="Facebook">
+              <FaFacebookF />
+            </a>
           </div>
         </div>
-
-        <div className="border bg-gray-20" />
-        <p className="regular-14 w-full text-center text-gray-30">2023 Hilink | All rights reserved</p>
+        <div className="footer-col">
+          <b>EXPLORE</b>
+          <a href="#trips">Our journeys</a>
+          <a href="#about">Why Travel Boss</a>
+          <a href="#stories">Travel journal</a>
+        </div>
+        <div className="footer-col">
+          <b>HERE TO HELP</b>
+          <a href="mailto:hello@travelboss.com">Get in touch</a>
+          <a href="#faq">FAQs</a>
+          <a href="#terms">Terms & conditions</a>
+        </div>
+        <a className="back-top" href="#top">
+          Back to top <FaArrowUp />
+        </a>
+      </div>
+      <div className="footer-bottom wrap">
+        <span>© 2026 Travel Boss. Made for the curious.</span>
+        <span>Travel well. Leave a little wonder.</span>
       </div>
     </footer>
-  )
+  );
 }
-
-type FooterColumnProps = {
-  title: string;
-  children: React.ReactNode;
-}
-
-const FooterColumn = ({ title, children }: FooterColumnProps) => {
-  return (
-    <div className="flex flex-col gap-5">
-      <h4 className="bold-18 whitespace-nowrap">{title}</h4>
-      {children}
-    </div>
-  )
-}
-
-export default Footer
