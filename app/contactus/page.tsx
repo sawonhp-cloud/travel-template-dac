@@ -39,51 +39,55 @@ export default function ContactUs() {
         <div className="mx-auto grid grid-col w-full max-w-[1450px] grid-cols-1 gap-12 lg:grid-cols-2">
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          
 
-            <div className="flex flex-col items-center gap-5">
-              <div className="flex items-center gap-5">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-blue-100">
-                <SlCallOut className="text-3xl text-blue-600" />
-              </div>
+<div className="mx-auto w-full max-w-md space-y-5">
 
-              <div className="flex flex-col gap-1">
-                <span className="text-sm font-semibold tracking-wider text-gray-500">
-                  CALL US
-                </span>
+  {/* Phone Card */}
+  <div className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
 
-                <a
-                  href="tel:+8801751023426"
-                  className="text-lg font-semibold text-gray-900 hover:text-blue-600"
-                >
-                  +880 1751023426
-                </a>
-              </div>
-              </div>
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-50">
+      <SlCallOut className="text-2xl text-blue-600" />
+    </div>
+
+    <div className="min-w-0 space-y-1">
+      <span className="block text-xs font-bold uppercase tracking-[2px] text-gray-400">
+        Call Us
+      </span>
+
+      <a
+        href="tel:+8801751023426"
+        className="block text-base font-semibold text-gray-800 transition-colors hover:text-blue-600 sm:text-lg"
+      >
+        +880 1751023426
+      </a>
+    </div>
+  </div>
+
+  {/* Email Card */}
+  <div className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-50">
+      <AiOutlineMail className="text-2xl text-blue-600" />
+    </div>
+
+    <div className="min-w-0 space-y-1">
+      <span className="block text-xs font-bold uppercase tracking-[2px] text-gray-400">
+        Email Us
+      </span>
+
+      <a
+        href="mailto:sawonhp1@gmail.com"
+        className="block break-all text-base font-semibold text-gray-800 transition-colors hover:text-blue-600 sm:text-lg"
+      >
+        sawonhp1@gmail.com
+      </a>
+    </div>
+  </div>
+
+</div>
 
 
-              <div className="flex items-center gap-5">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-blue-100">
-                <AiOutlineMail className="text-3xl text-blue-600" />
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-sm font-semibold tracking-wider text-gray-500">
-                  Email
-                </span>
-
-                <a
-                  href="tel:+8801751023426"
-                  className="text-lg font-semibold text-gray-900 hover:text-blue-600"
-                >
-                  sawonhp1@gmail.com
-                </a>
-              </div>
-              </div>
-
-
-            </div>
-
-          </div>
 
 
           {/* Contact Form */}

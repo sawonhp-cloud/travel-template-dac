@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <b>HERE TO HELP</b>
-          <a href="mailto:hello@travelboss.com">Get in touch</a>
+          <a href="/contactus">Get in touch</a>
           <a href="#faq">FAQs</a>
           <a href="#terms">Terms & conditions</a>
         </div>
