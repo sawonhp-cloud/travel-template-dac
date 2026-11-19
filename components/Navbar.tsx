@@ -33,7 +33,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex shrink-0 items-center gap-3">
 
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-200">
+          <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-blue-500 text-white shadow-sm shadow-blue-200">
             <Plane size={27} />
           </div>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
 
           <Link
             href="/login"
-            className="flex items-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-bold text-gray-700 transition hover:border-blue-600 hover:text-blue-600"
+            className="flex items-center gap-2 rounded-sm border border-gray-200 px-4 py-2.5 text-sm font-bold text-gray-700 transition hover:border-blue-600 hover:text-blue-600"
           >
             <UserRound size={17} />
             Sign In
@@ -84,7 +84,7 @@ export default function Navbar() {
 
           <Link
             href="/register"
-            className="rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700"
+            className="rounded-sm bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-sm shadow-blue-200 transition hover:bg-blue-700"
           >
             Register
           </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-600 lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-sm bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-600 lg:hidden"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >

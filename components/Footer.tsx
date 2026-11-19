@@ -5,16 +5,18 @@ import {
   MapPin,
   Phone,
   Mail,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
   ArrowRight,
   Send,
   ShieldCheck,
   CreditCard,
   Headset,
 } from "lucide-react";
+import {
+  FaFacebookF as Facebook,
+  FaInstagram as Instagram,
+  FaLinkedinIn as Linkedin,
+  FaXTwitter as Twitter,
+} from "react-icons/fa6";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -53,10 +55,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex w-full max-w-md rounded-xl bg-white p-1.5"
-          >
+          <form className="flex w-full max-w-md rounded-sm bg-white p-1.5">
             <input
               type="email"
               required
@@ -65,7 +64,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="flex shrink-0 items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
+              className="flex shrink-0 items-center gap-2 rounded-sm bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
             >
               Subscribe
               <Send size={16} />
@@ -81,7 +80,7 @@ export default function Footer() {
         {/* Company Information */}
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
+            <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-blue-600 text-white">
               <Plane size={27} />
             </div>
 
@@ -184,7 +183,7 @@ export default function Footer() {
           <div className="space-y-6">
 
             <div className="flex items-start gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-blue-600/10 text-blue-400">
                 <MapPin size={19} />
               </div>
               <div>
@@ -198,7 +197,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-600/10 text-blue-400">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-blue-600/10 text-blue-400">
                 <Phone size={19} />
               </div>
               <div>

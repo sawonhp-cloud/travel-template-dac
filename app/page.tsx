@@ -1,339 +1,468 @@
+
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import {
-  FaArrowRight,
-  FaExternalLinkAlt,
-  FaCompass,
-  FaGlobeAmericas,
-  FaHeart,
-  FaPlane,
-  FaRegClock,
-  FaStar,
-  FaUmbrellaBeach,
-} from "react-icons/fa";
 
 const destinations = [
   {
-    name: "Amalfi Coast",
-    country: "Italy",
-    days: "7 days",
-    price: "$1,890",
-    rating: "4.9",
+    name: "Dubai",
+    country: "United Arab Emirates",
+    price: "৳ 35,000",
     image:
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1100&q=85",
-    tag: "MOST LOVED",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
   },
   {
-    name: "Kyoto in Bloom",
-    country: "Japan",
-    days: "9 days",
-    price: "$2,450",
-    rating: "5.0",
+    name: "Maldives",
+    country: "Indian Ocean",
+    price: "৳ 42,000",
     image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1100&q=85",
-    tag: "LIMITED DATES",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
   },
   {
-    name: "Marrakech Escape",
-    country: "Morocco",
-    days: "5 days",
-    price: "$1,240",
-    rating: "4.8",
+    name: "Thailand",
+    country: "Bangkok & Phuket",
+    price: "৳ 28,000",
     image:
-      "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&w=1100&q=85",
-    tag: "CULTURE PICK",
-  },
-];
-const stories = [
-  {
-    title: "The slow side of the Amalfi Coast",
-    location: "ITALY · 6 MIN READ",
-    image:
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85",
-  },
-  {
-    title: "A first-timer’s guide to Kyoto",
-    location: "JAPAN · 8 MIN READ",
-    image:
-      "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800",
   },
 ];
 
-export default function Home() {
+const services = [
+  {
+    icon: "✈️",
+    title: "Flight Booking",
+    description: "Find and book affordable domestic and international flights.",
+    link: "/flights",
+  },
+  {
+    icon: "🏨",
+    title: "Hotel Booking",
+    description: "Discover comfortable hotels at competitive prices.",
+    link: "/hotels",
+  },
+  {
+    icon: "🛂",
+    title: "Visa Assistance",
+    description: "Get professional support for your travel visa application.",
+    link: "/visa",
+  },
+  {
+    icon: "🌍",
+    title: "Tour Packages",
+    description: "Explore exciting destinations with our tour packages.",
+    link: "/tours",
+  },
+];
+
+export default function HomePage() {
+  const [tripType, setTripType] = useState("One Way");
+
   return (
-    <>
-      <section className="hero">
-        <div className="hero-image" />
-        <div className="hero-shade" />
-        <div className="hero-inner wrap">
-          <div className="hero-copy">
-            <div className="eyebrow light">
-              <span /> THE WORLD, YOUR WAY
-            </div>
-            <h1>
-              Go beyond
-              <br />
-              the <em>ordinary.</em>
+    <main className="min-h-screen bg-white text-slate-800">
+
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-slate-950">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-50"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800')",
+          }}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent" />
+
+        <div className="relative mx-auto max-w-7xl px-5 py-24 md:py-36">
+          <div className="max-w-3xl">
+            <span className="inline-block rounded-full bg-orange-500/20 px-4 py-2 text-sm font-semibold text-orange-300">
+              ✈ Your Trusted Travel Partner
+            </span>
+
+            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
+              Explore The World,
+              <span className="block text-orange-400 mt-6">
+                Travel With Confidence.
+              </span>
             </h1>
-            <p>
-              Thoughtful trips for curious people. Discover places that stay
-              with you long after you come home.
+
+            <p className="mt-6 max-w-xl text-base leading-8 text-slate-200 md:text-lg">
+              Discover amazing destinations, book affordable flights,
+              hotels and holiday packages with King Star Travel.
             </p>
-            <a className="button button-coral" href="#trips">
-              Explore our trips <FaArrowRight />
-            </a>
-          </div>
-          <div className="hero-note">
-            <span className="note-line" />
-            <span>
-              Small groups. Big stories.
-              <br />
-              Always made personal.
-            </span>
-          </div>
-        </div>
-        <div className="hero-bottom wrap">
-          <span>SCROLL TO EXPLORE</span>
-          <span className="scroll-line" />
-          <span>01 — 03</span>
-        </div>
-      </section>
 
-      <section className="search-section wrap" aria-label="Find your trip">
-        <div className="search-intro">
-          <span>YOUR NEXT CHAPTER</span>
-          <h2>Where to next?</h2>
-        </div>
-        <form className="search-card" action="#trips">
-          <label>
-            <span>DESTINATION</span>
-            <select defaultValue="">
-              <option value="" disabled>
-                Anywhere in the world
-              </option>
-              <option>Italy</option>
-              <option>Japan</option>
-              <option>Morocco</option>
-            </select>
-          </label>
-          <label>
-            <span>WHEN</span>
-            <select defaultValue="">
-              <option value="" disabled>
-                Choose your dates
-              </option>
-              <option>Spring 2027</option>
-              <option>Summer 2027</option>
-              <option>Autumn 2027</option>
-            </select>
-          </label>
-          <label>
-            <span>TRAVEL STYLE</span>
-            <select defaultValue="">
-              <option value="" disabled>
-                What feels like you?
-              </option>
-              <option>Culture & food</option>
-              <option>Nature & outdoors</option>
-              <option>Slow travel</option>
-            </select>
-          </label>
-          <button className="search-button" type="submit">
-            <FaCompass /> <span>Find my trip</span>
-          </button>
-        </form>
-      </section>
-
-      <section className="section wrap" id="trips">
-        <div className="section-heading">
-          <div>
-            <div className="eyebrow">
-              <span /> CURATED FOR YOU
-            </div>
-            <h2>Places with a pull.</h2>
-          </div>
-          <a className="text-link" href="#journeys">
-            View all journeys <FaArrowRight />
-          </a>
-        </div>
-        <div className="trip-grid">
-          {destinations.map((trip) => (
-            <article className="trip-card" key={trip.name}>
-              <div
-                className="trip-image"
-                style={{ backgroundImage: `url("${trip.image}")` }}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/flights"
+                className="rounded-sm bg-orange-500 px-7 py-3.5 font-bold text-white transition hover:bg-orange-600"
               >
-                <span className="trip-tag">{trip.tag}</span>
-                <button className="heart" aria-label={`Save ${trip.name}`}>
-                  <FaHeart />
+                Book Your Flight →
+              </Link>
+
+              <Link
+                href="/tours"
+                className="rounded-sm border border-white/50 px-7 py-3.5 font-bold text-white transition hover:bg-white hover:text-slate-900"
+              >
+                Explore Packages
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FLIGHT SEARCH SECTION */}
+      <section className="relative z-10 mx-auto -mt-12 max-w-7xl px-5">
+        <div className="rounded-sm bg-white p-6 shadow-sm md:p-8">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900">
+                Find Your Flight
+              </h2>
+              <p className="mt-1 text-sm text-slate-500">
+                Search and compare flights for your next journey.
+              </p>
+            </div>
+
+            <div className="flex gap-2">
+              {["One Way", "Round Trip", "Multi City"].map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setTripType(type)}
+                  className={`rounded-sm px-3 py-2 text-xs font-semibold transition md:px-4 md:text-sm ${
+                    tripType === type
+                      ? "bg-orange-500 text-white"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  {type}
                 </button>
-                <span className="image-rating">
-                  <FaStar /> {trip.rating}
-                </span>
-              </div>
-              <div className="trip-info">
-                <div className="trip-place">
-                  <div>
-                    <span>{trip.country}</span>
-                    <h3>{trip.name}</h3>
-                  </div>
-                  <span className="trip-arrow">
-                    <FaExternalLinkAlt />
-                  </span>
-                </div>
-                <div className="trip-meta">
-                  <span>
-                    <FaRegClock /> {trip.days}
-                  </span>
-                  <span>
-                    From <b>{trip.price}</b>
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              ))}
+            </div>
+          </div>
 
-      <section className="manifesto" id="journeys">
-        <div className="manifesto-image" />
-        <div className="manifesto-copy">
-          <div className="eyebrow light">
-            <span /> TRAVEL, THOUGHTFULLY
-          </div>
-          <h2>
-            See more.
-            <br />
-            <em>Feel more.</em>
-            <br />
-            Be more.
-          </h2>
-          <p>
-            We believe the best journeys are the ones that bring you closer—to a
-            place, its people, and a little more of yourself.
-          </p>
-          <a className="button button-outline" href="#about">
-            The Travel Boss difference <FaArrowRight />
-          </a>
-          <div className="manifesto-signature">
-            Made for the <span>curious.</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="perks wrap" id="about">
-        <div className="perks-head">
-          <div className="eyebrow">
-            <span /> THE GOOD STUFF
-          </div>
-          <h2>
-            Travel that feels
-            <br />
-            like <em>you.</em>
-          </h2>
-        </div>
-        <div className="perk-list">
-          <div className="perk">
-            <span className="perk-icon">
-              <FaGlobeAmericas />
-            </span>
+          <form
+            action="/flights"
+            className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5"
+          >
             <div>
-              <h3>Local, always</h3>
-              <p>
-                Meet the people who know their home best. Our local hosts make
-                every stop mean more.
-              </p>
-            </div>
-          </div>
-          <div className="perk">
-            <span className="perk-icon">
-              <FaUmbrellaBeach />
-            </span>
-            <div>
-              <h3>Room to breathe</h3>
-              <p>
-                Small groups, thoughtful pacing, and space to follow the moment
-                wherever it leads.
-              </p>
-            </div>
-          </div>
-          <div className="perk">
-            <span className="perk-icon">
-              <FaPlane />
-            </span>
-            <div>
-              <h3>Every detail, handled</h3>
-              <p>
-                From the first hello to the ride home, the little things are
-                already taken care of.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="stories wrap">
-        <div className="section-heading">
-          <div>
-            <div className="eyebrow">
-              <span /> FIELD NOTES
-            </div>
-            <h2>For the love of elsewhere.</h2>
-          </div>
-          <a className="text-link" href="#stories">
-            Read all stories <FaArrowRight />
-          </a>
-        </div>
-        <div className="story-grid" id="stories">
-          {stories.map((story) => (
-            <a href="#stories" className="story-card" key={story.title}>
-              <div
-                className="story-image"
-                style={{ backgroundImage: `url("${story.image}")` }}
-              />
-              <div className="story-info">
-                <span>{story.location}</span>
-                <h3>{story.title}</h3>
-                <FaArrowRight />
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="newsletter">
-        <div className="newsletter-inner wrap">
-          <div>
-            <div className="eyebrow light">
-              <span /> A LITTLE INSPIRATION
-            </div>
-            <h2>
-              Good things are
-              <br />
-              just around the <em>world.</em>
-            </h2>
-          </div>
-          <form action="#newsletter">
-            <label htmlFor="email">
-              Occasional notes for the curious. No noise, just nice.
-            </label>
-            <div className="email-row">
+              <label className="mb-2 block text-sm font-semibold">
+                From
+              </label>
               <input
-                id="email"
-                type="email"
-                placeholder="Your email address"
+                name="departure"
+                placeholder="Dhaka (DAC)"
+                className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-orange-500"
                 required
               />
-              <button type="submit" aria-label="Subscribe">
-                <FaArrowRight />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold">
+                To
+              </label>
+              <input
+                name="arrival"
+                placeholder="Dubai (DXB)"
+                className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-orange-500"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold">
+                Departure
+              </label>
+              <input
+                type="date"
+                name="departureDate"
+                className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-orange-500"
+                required
+              />
+            </div>
+
+            {tripType === "Round Trip" && (
+              <div>
+                <label className="mb-2 block text-sm font-semibold">
+                  Return
+                </label>
+                <input
+                  type="date"
+                  name="returnDate"
+                  className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-orange-500"
+                />
+              </div>
+            )}
+
+            <div className="flex items-end">
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-slate-900 px-5 py-3.5 font-bold text-white transition hover:bg-orange-500"
+              >
+                Search Flights →
               </button>
             </div>
-            <small>
-              By subscribing, you agree to receive occasional travel inspiration
-              from Travel Boss.
-            </small>
+
+            <input type="hidden" name="tripType" value={tripType} />
           </form>
         </div>
       </section>
-    </>
+
+      {/* SERVICES SECTION */}
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="mb-12 text-center">
+          <span className="font-bold uppercase tracking-widest text-orange-500">
+            Our Services
+          </span>
+          <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
+            Everything You Need For Travel
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-500">
+            From flight booking to complete holiday planning,
+            we make your journey easier.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => (
+            <Link
+              href={service.link}
+              key={service.title}
+              className="group rounded-sm border border-slate-100 bg-white p-7 shadow-sm transition hover:-translate-y-2 hover:border-blue-200 hover:shadow-sm"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-blue-50 text-3xl transition group-hover:bg-blue-500">
+                {service.icon}
+              </div>
+
+              <h3 className="mt-6 text-xl font-bold text-slate-900">
+                {service.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-slate-500">
+                {service.description}
+              </p>
+
+              <span className="mt-5 inline-block font-bold text-orange-500">
+                Explore More →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* DESTINATIONS SECTION */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="font-bold uppercase tracking-widest text-orange-500">
+                Popular Destinations
+              </span>
+              <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">
+                Explore Popular Places
+              </h2>
+            </div>
+
+            <Link
+              href="/tours"
+              className="font-bold text-orange-500 hover:text-orange-600"
+            >
+              View All Destinations →
+            </Link>
+          </div>
+
+          <div className="grid gap-7 md:grid-cols-3">
+            {destinations.map((destination) => (
+              <div
+                key={destination.name}
+                className="group overflow-hidden rounded-sm bg-white shadow-sm transition hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={destination.image}
+                    alt={destination.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+
+                  <span className="absolute bottom-4 left-4 rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-900">
+                    From {destination.price}
+                  </span>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-sm font-medium text-orange-500">
+                    {destination.country}
+                  </p>
+
+                  <h3 className="mt-2 text-2xl font-bold text-slate-900">
+                    {destination.name}
+                  </h3>
+
+                  <Link
+                    href="/tours"
+                    className="mt-5 inline-block font-bold text-slate-700 hover:text-orange-500"
+                  >
+                    Explore Destination →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2">
+        <div className="overflow-hidden rounded-sm">
+          <img
+            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1000"
+            alt="Travel planning"
+            className="h-[420px] w-full object-cover"
+          />
+        </div>
+
+        <div>
+          <span className="font-bold uppercase tracking-widest text-orange-500">
+            Why Choose Us
+          </span>
+
+          <h2 className="mt-3 text-3xl font-extrabold leading-tight text-slate-900 md:text-4xl">
+            Making Your Travel Experience Simple & Memorable
+          </h2>
+
+          <p className="mt-5 leading-8 text-slate-500">
+            King Star Travel provides travel solutions for individual
+            customers, corporate clients and travel agencies. Our goal
+            is to make every journey convenient and reliable.
+          </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-6">
+            {[
+              ["01", "Affordable Travel Solutions"],
+              ["02", "Professional Support"],
+              ["03", "B2B & B2C Services"],
+              ["04", "Easy Booking Experience"],
+            ].map(([number, title]) => (
+              <div key={number} className="flex gap-3">
+                <span className="font-extrabold text-orange-500">
+                  {number}
+                </span>
+                <span className="font-semibold text-slate-800">
+                  {title}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href="/about"
+            className="mt-9 inline-block rounded-sm bg-orange-500 px-7 py-3.5 font-bold text-white transition hover:bg-orange-600"
+          >
+            About King Star Travel →
+          </Link>
+        </div>
+      </section>
+
+      {/* TOUR PACKAGE SECTION */}
+      <section className="bg-slate-950 py-20 text-white">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="mb-12 text-center">
+            <span className="font-bold uppercase tracking-widest text-orange-400">
+              Travel Packages
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
+              Discover Your Next Adventure
+            </h2>
+            <p className="mt-4 text-slate-400">
+              Find the perfect holiday package for your next journey.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Dubai Holiday",
+                days: "5 Days / 4 Nights",
+                price: "৳ 55,000",
+                image:
+                  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
+              },
+              {
+                title: "Thailand Tour",
+                days: "6 Days / 5 Nights",
+                price: "৳ 48,000",
+                image:
+                  "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800",
+              },
+              {
+                title: "Maldives Escape",
+                days: "4 Days / 3 Nights",
+                price: "৳ 65,000",
+                image:
+                  "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800",
+              },
+            ].map((tour) => (
+              <div
+                key={tour.title}
+                className="overflow-hidden rounded-sm bg-white text-slate-900"
+              >
+                <img
+                  src={tour.image}
+                  alt={tour.title}
+                  className="h-56 w-full object-cover"
+                />
+
+                <div className="p-6">
+                  <p className="text-sm font-medium text-orange-500">
+                    {tour.days}
+                  </p>
+
+                  <h3 className="mt-2 text-xl font-bold">
+                    {tour.title}
+                  </h3>
+
+                  <div className="mt-5 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-slate-500">Starting From</p>
+                      <p className="text-xl font-extrabold text-orange-500">
+                        {tour.price}
+                      </p>
+                    </div>
+
+                    <Link
+                      href="/tours"
+                      className="rounded-lg bg-slate-900 px-4 py-3 text-sm font-bold text-white hover:bg-orange-500"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="bg-blue-50 px-5 py-16">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+          <div>
+            <h2 className="text-3xl font-extrabold text-orange-500">
+              Ready For Your Next Journey?
+            </h2>
+            <p className="mt-3 text-orange-50">
+              Let King Star Travel help you plan your next adventure.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="rounded-sm bg-white px-8 py-4 font-bold text-orange-600 transition hover:bg-orange-500 hover:text-white"
+          >
+            Contact Us →
+          </Link>
+        </div>
+      </section>
+
+    </main>
   );
 }
